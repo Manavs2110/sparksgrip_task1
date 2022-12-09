@@ -1,8 +1,6 @@
  const mongoose = require('mongoose');
-const mongoAtlasUri =
-  "mongodb+srv://manavs2110:manavs2110@cluster0.k6kjx30.mongodb.net/grip_intern?retryWrites=true&w=majority";
 
-try {
+/*try {
   // Connect to the MongoDB cluster
   mongoose.connect(
     process.env.MONGO_URI,
@@ -11,8 +9,15 @@ try {
   );
 } catch (e) {
   console.log("could not connect");
+}*/
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
 }
 
-const db = mongoose.connection;
-db.on("error", (err) => console.log(`Connection error ${err}`));
-db.once("open", () => console.log("Connected to DB!"));
+module.exports= connectDB;

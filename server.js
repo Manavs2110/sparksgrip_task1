@@ -5,7 +5,7 @@ const path = require('path');
 let bodyParser = require('body-parser');
 const dotenv=require("dotenv")
 dotenv.config();
- require('./database/db');
+ const connectDB = require('./database/db');
 
  
 
@@ -32,10 +32,12 @@ if(process.env.NODE_ENV === "production"){
 
 
 // PORT
-const port = process.env.PORT ||4000;
-const server = app.listen(port, () => {
-    console.log('Connected to port ' + port)
+const PORT = process.env.PORT ||4000;
+connectDB().then(() => {
+  app.listen(PORT, () => {
+      console.log("listening for requests");
   })
+})
 
   // 404 Error
 app.use((req, res, next) => {
