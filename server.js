@@ -42,7 +42,7 @@ connectDB().then(() => {
   // 404 Error
 app.use((req, res, next) => {
     res.status(404).send('Error 404!')
-    res.header( "Access-Control-Allow-Origin" );
+    
   });
 
   app.use(function (err, req, res, next) {
