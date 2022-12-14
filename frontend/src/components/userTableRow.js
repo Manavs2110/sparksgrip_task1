@@ -11,7 +11,7 @@ const userTableRow = (props) => {
     const { _id, name,email, amount} = props.obj;
     
     const deleteUser = () => {
-        axios.delete("/users/delete-user/"+ _id).then((res)=>{
+        axios.delete(window.location.origin+"/users/delete-user/"+ _id).then((res)=>{
             if(res.status === 200 ){
                 alert("User successfully deleted");
           window.location.reload();
@@ -80,7 +80,7 @@ const userTableRow = (props) => {
         } 
         else if(formValues.name2 == formValues.name1) alert("sender and receiver can't be same")
         else{
-            axios.post('/users/create-transaction', formValues).then(res => {
+            axios.post(window.location.origin+'/users/create-transaction', formValues).then(res => {
             if(res.status === 200){
                 alert('Transaction Successfull')
                 window.location = "/"

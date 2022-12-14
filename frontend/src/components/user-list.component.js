@@ -8,7 +8,7 @@ const userList =()=>{
     const [user, setUser] = useState([]);
 
     useEffect(()=>{
-        axios.get('/users/').then(({data})=>{
+        axios.get(window.location.origin+'/users/').then(({data})=>{
             setUser(data);
         }).catch((err)=>{
             console.log(err);

@@ -8,7 +8,7 @@ const transactionList =()=>{
     const [user, setUser] = useState([]);
 
     useEffect(()=>{
-        axios.get('/users/transaction-history').then(({data})=>{
+        axios.get(window.location.origin+'/users/transaction-history').then(({data})=>{
             setUser(data);
         }).catch((err)=>{
             console.log(err);
