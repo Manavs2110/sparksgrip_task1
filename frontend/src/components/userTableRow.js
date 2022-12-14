@@ -27,7 +27,7 @@ const userTableRow = (props) => {
     const [formValues, setFormValues] = useState({name1:name, name2:'',amount:''});
     const [formValues2, setFormValues2] = useState({name:"", email:'',amount:''});
     useEffect(()=>{
-        axios.get('/users/').then(({data})=>{
+        axios.get(window.location.origin+'/users/').then(({data})=>{
             setUser(data);
         }).catch((err)=>{
             console.log(err);

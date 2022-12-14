@@ -1,8 +1,5 @@
 
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import axios from "axios";
 
 const transactionTableRow = (props) => {
     const {  name1,name2, amount} = props.obj;
